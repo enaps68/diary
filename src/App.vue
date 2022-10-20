@@ -1,9 +1,25 @@
 <template>
-  <nav>
+  <div>
+    <nav class="navbar bg-light" >
+  <div class="container-fluid" style="background-color: #a58e74;">
+    <a class="navbar-brand" href="#">
+      <img src="src/assets/5258541_diary_education_notebook_planner_scrapbook_icon.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      Diary
+    </a>
+    
+
+
+</div>
+</nav>
+<nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+    <router-link to="/login">Log in</router-link> |
+    <router-link to="/signup">Sign up</router-link>
+  </nav> 
+  
   <router-view/>
+</div>
+
 </template>
 
 <style lang="scss">
@@ -23,7 +39,7 @@ nav {
     color: #2c3e50;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #a58e74;
     }
   }
 }
