@@ -1,4 +1,5 @@
 <template>
+  <br><br>
  <div class="about">
    <h1>SIGN UP</h1>
  <div class="container">
@@ -32,7 +33,7 @@ id="exampleInputPassword1" placeholder="Password" />
 id="exampleInputPassword1" placeholder="Password" />
 </div>
 <br>
-<button type="submit" class="btn btn-primary" style="background-color: #e09132;border: none;">Submit</button>
+<button type="submit" class="btn btn-primary" style="background-color: #d0947a;border: none;">Submit</button>
 </form>
 </div>
 <div class="col-sm"></div>

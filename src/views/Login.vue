@@ -1,5 +1,5 @@
 <template>
-
+<br><br>
 <div class="about">
 
     <h1>LOG IN</h1>
@@ -34,7 +34,7 @@ id="exampleInputPassword1" placeholder="Password" />
 </div>
 <br>
 
-<button type="submit" class="btn btn-primary" style="background-color: #e09132;border: none;">Submit</button>
+<button type="submit" class="btn btn-primary" style="background-color: #d0947a;border: none;">Submit</button>
 
 </form>
 </div>

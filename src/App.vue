@@ -1,25 +1,29 @@
 <template>
-  <div>
-    <nav class="navbar bg-light" >
-  <div class="container-fluid" style="background-color: #a58e74;">
-    <a class="navbar-brand" href="#">
-      <img src="src/assets/5258541_diary_education_notebook_planner_scrapbook_icon.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-      Diary
-    </a>
-    
-
-
-</div>
-</nav>
-<nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/login">Log in</router-link> |
-    <router-link to="/signup">Sign up</router-link>
-  </nav> 
+<nav class="navbar navbar-expand-lg" style="background-color: #e5d5c6;">
+  <div class="container-fluid">
+    <img src="@/assets/5258541_diary_education_notebook_planner_scrapbook_icon.png" height="40" class="d-inline-block align-top" alt="" loading="lazy" />
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <router-link to="/login" class="nav-link">Login</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/signup" class="nav-link">Sign up</router-link>
+        </li>
+        
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn" type="submit" style="background-color: #d0947a;border: none;">Search</button>
+      </form>
+    </div>
+  </div>
   
-  <router-view/>
-</div>
-
+</nav>
+<router-view></router-view>
 </template>
 
 <style lang="scss">
