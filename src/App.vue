@@ -1,12 +1,17 @@
 <template>
 <nav class="navbar navbar-expand-lg" style="background-color: #e5d5c6;">
   <div class="container-fluid">
+    <router-link to="/" class="nav-link">
     <img src="@/assets/5258541_diary_education_notebook_planner_scrapbook_icon.png" height="40" class="d-inline-block align-top" alt="" loading="lazy" />
+  </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <router-link to="/" class="nav-link">Home</router-link>
+        </li>
         <li class="nav-item">
           <router-link to="/login" class="nav-link">Login</router-link>
         </li>
@@ -16,7 +21,7 @@
         
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border: none;">
         <button class="btn" type="submit" style="background-color: #d0947a;border: none;">Search</button>
       </form>
     </div>
