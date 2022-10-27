@@ -21,7 +21,7 @@
         
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border: none;">
+        <input v-model="store.searchterm" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border: none;">
         <button class="btn" type="submit" style="background-color: #d0947a;border: none;">Search</button>
       </form>
     </div>
@@ -30,6 +30,22 @@
 </nav>
 <router-view></router-view>
 </template>
+
+
+<script>
+  import store from "@/store";
+
+  export default {
+    name: "app",
+    data() {
+      return {
+        store: store,
+    };
+  },
+  };
+
+</script>
+
 
 <style lang="scss">
 #app {
