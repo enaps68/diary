@@ -1,10 +1,16 @@
 <template>
-<div class="card" style="width: 18rem;">
-      <img :src="info.url" class="card-img-top" alt="...">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img :src="info.url" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{{ info.naslov }}</h5>
-        <p class="card-text">{{ info.opis }} </p>
-        <a href="#" class="btn btn-primary" style="background-color: #b97836; border: none;">Pogledaj</a>
+        <p class="card-text">{{ info.opis }}</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
   </div>
 </div>
 <br>
@@ -18,4 +24,9 @@ export default {
 }
 </script>
 
-
+<style>
+#btn {
+  background-color: #ffc05f; 
+  border: none;
+}
+</style>

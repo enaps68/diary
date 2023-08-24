@@ -1,23 +1,14 @@
 <template>
   <br>
   <div class="container text-center">
-  <div class="row">
-
-    <div class="col-2">
-
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-6" >
+          <card v-for="card in filterdcards" :key="card.url" :info="card" style="margin: auto;"/>
+      </div>
+      <div class="col"></div>
     </div>
-    
-    <div class="col-10">
-      <card v-for="card in filterdcards" :key="card.url" :info="card"/>
-
-     </div>
-    
-    <div class="col-2">
-      
-    </div>
-
   </div>
-</div>
 </template>
 
 <script>
@@ -56,13 +47,8 @@ export default {
   },
   computed: {
      filterdcards () {
-
       let termin = this.store.searchterm;
-
       return this.cards.filter(card => card.naslov.includes(termin));
-      
-
-      
      }
   },
 
