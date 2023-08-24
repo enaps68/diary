@@ -8,7 +8,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ info.naslov }}</h5>
         <p class="card-text">{{ info.opis }}</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <p class="card-text"><small class="text-body-secondary">{{ info.datum }}</small></p>
       </div>
     </div>
   </div>
@@ -25,8 +25,4 @@ export default {
 </script>
 
 <style>
-#btn {
-  background-color: #ffc05f; 
-  border: none;
-}
 </style>

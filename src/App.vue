@@ -28,15 +28,16 @@
       </div>
      </div> 
   </nav>
+  {{ store.searchterm }}
 <router-view></router-view>
 </template>
 
 
 <script>
-  import store from "@/store";
+import store from "@/store.js"
 
   export default {
-    name: "app",
+    name: 'app',
     data() {
       return {
         store: store,
