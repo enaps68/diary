@@ -8,16 +8,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- 
           <li class="nav-item">
             <router-link to="/" class="nav-link">Home</router-link>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <li v-if="!store.currentUser" class="nav-item">
             <router-link to="/login" class="nav-link">Login</router-link>
           </li>
-          <li class="nav-item">
+          <li v-if="!store.currentUser" class="nav-item">
             <router-link to="/signup" class="nav-link">Sign up</router-link>
+          </li>
+          <li v-if="store.currentUser" class="nav-item">
+            <a href="#" @click="logout()" class="nav-link">Logout</a>
           </li>
         </ul>
       
@@ -28,13 +31,29 @@
       </div>
      </div> 
   </nav>
-  {{ store.searchterm }}
 <router-view></router-view>
 </template>
 
 
 <script>
 import store from "@/store.js"
+import { firebase } from '@/firebase.js';
+import router from '@/router';
+
+ 
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log(user.email);
+    store.currentUser = user.email;
+  } else {
+    console.log('No user');
+    store.currentUser = null;
+
+    if (router.name !== 'Login') {
+      router.push({name: 'Login'})
+    } 
+  }
+});
 
   export default {
     name: 'app',
@@ -42,7 +61,17 @@ import store from "@/store.js"
       return {
         store: store,
     };
-  },
+   },
+
+   methods: {
+    logout() {
+      firebase.auth().signOut()
+      .then(() => {
+        this.$router.replace({ name: 'Login'});
+      });
+    },
+   },
+
   };
 
 </script>
