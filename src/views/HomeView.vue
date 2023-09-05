@@ -4,6 +4,41 @@
     <div class="row">
       <div class="col"></div>
       <div class="col-6">
+        
+        <form @submit.prevent="postNewImage" class="form-inline mb-5">
+          <div class="form-group">
+            <label for="imageUrl">Image URL</label>
+            <input
+                v-model="newImageUrl"
+                type="text"
+                class="form-control ml-2"
+                placeholder="Enter the image URL"
+                id="imageUrl"
+              />
+          </div>
+          <div class="form-group">
+            <label for="imageCaption">Caption</label>
+            <input
+              v-model="newImageCaption"
+              type="text"
+              class="form-control ml-2"
+              placeholder="Enter the image caption"
+              id="imageCaption"
+            />
+          </div>
+          <div class="form-group">
+            <label for="imageDescription">Description</label>
+            <input
+              v-model="newImageDescription"
+              type="text"
+              class="form-control ml-2"
+              placeholder="Enter the image description"
+              id="imageDescription"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary ml-2" style="background-color: #53d3dc71;border: none;">Post</button>
+        </form>
+
           <card v-for="card in filterdcards" :key="card.url" :info="card"/>
       </div>
       <div class="col"></div>
@@ -41,6 +76,7 @@ cards = [
 
 import card from '@/components/card.vue';
 import store from "@/store.js";
+import { db } from '@/firebase.js';
 
 export default {
 
@@ -49,9 +85,43 @@ export default {
     return {
       cards: cards,
       store: store,
+      newImageUrl: "",
+      newImageCaption: "",
+      newImageDescription: "",
     };
     
   },
+
+  methods: {
+    postNewImage() {
+
+      const imageUrl = this.newImageUrl;
+      const imageCaption = this.newImageCaption;
+      const imageDescription = this.newImageDescription;
+
+      db.collection("posts")
+        .add({
+            url: imageUrl,
+            capt: imageCaption,
+            desc: imageDescription,
+            email: store.currentUser,
+            posted_at: Date.now(),
+          })
+        .then( (doc) => {
+          console.log("Spremljeno", doc);
+          alert("Uspješno objavljeno");
+          this.newImageUrl = '';
+          this.newImageCaption = '';
+          this.newImageDescription = '';
+        })
+        .catch( (e) => {
+          console.error(e);
+          alert("Došlo je do greške");
+        });
+    },
+
+  },
+
   computed: {
      filterdcards () {
       let termin = this.store.searchterm;

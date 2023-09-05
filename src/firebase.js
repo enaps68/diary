@@ -1,8 +1,10 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { initializeApp } from 'firebase/app';
 
-var firebaseConfig = {
+
+const firebaseConfig = {
 
     apiKey: "AIzaSyBWp21kRHYUcy4bxxuwlCwY8pcU3Fc-brw",
     authDomain: "diary-16821.firebaseapp.com",
@@ -14,7 +16,9 @@ var firebaseConfig = {
   };
   
   
-  firebase.initializeApp(firebaseConfig);
-  
+  //firebase.initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
 
-export { firebase };
+let db = firebase.firestore();
+
+export { firebase, db };
