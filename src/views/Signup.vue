@@ -53,7 +53,7 @@ export default {
           })
         .catch(function(error) {
           console.error('Došlo je do greške', error);
-          alert("Greška: " + error.message );
+          alert("Greška: " + error.message);
         })
      
       },  
