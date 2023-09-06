@@ -39,14 +39,16 @@ const router = createRouter({
 });  //ovo je iz vue router 4 doc
 
 router.beforeEach( (to, from, next) => {
-  console.log("Stara ruta ", from.name, " -> nova ruta ", to.name, 'korisnik', store.currentUser)
+  //console.log("Stara ruta ", from.name, " -> nova ruta ", to.name, 'korisnik', store.currentUser)
 
   const noUser = store.currentUser === null;
 
   if (noUser && to.meta.needsUser) {
     next('login');
   }
-  else { next();}
+  else { 
+    next();
+  }
   
 });
 

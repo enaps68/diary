@@ -8,7 +8,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ info.naslov }}</h5>
         <p class="card-text">{{ info.opis }}</p>
-        <p class="card-text"><small class="text-body-secondary">{{ info.datum }}</small></p>
+        <p class="card-text"><small class="text-body-secondary">{{ postedDate }}</small></p>
       </div>
     </div>
   </div>
@@ -17,11 +17,18 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   props: ["info"],
   name: 'card',
+  computed: {
+    postedDate() {
+      return moment(this.info.datum).format("DD.MM.YYYY");
+    },
+  },
   
-}
+};
 </script>
 
 <style>

@@ -4,6 +4,8 @@ import 'firebase/compat/firestore';
 import { initializeApp } from 'firebase/app';
 
 
+
+// ovako pise u firebase doc, sa const
 const firebaseConfig = {
 
     apiKey: "AIzaSyBWp21kRHYUcy4bxxuwlCwY8pcU3Fc-brw",
@@ -16,9 +18,11 @@ const firebaseConfig = {
   };
   
   
-  //firebase.initializeApp(firebaseConfig);
-  const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig); 
+  // ovako pise u firebase doc, sa const 
+const app = initializeApp(firebaseConfig);
 
 let db = firebase.firestore();
+
 
 export { firebase, db };
